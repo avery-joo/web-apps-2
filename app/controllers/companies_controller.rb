@@ -2,13 +2,20 @@ class CompaniesController < ApplicationController
 
   def index
     # find all Company rows
+    @companies = Company.all
     # render companies/index view
   end
 
   def show
     # find a Company
+    # puts "-------"
+    # puts params["id"]
+    # puts "-------"
+    @company = Company.find_by({"id" => params["id"]})
+    puts @company
     # render companies/show view with details about Company
   end
+  
 
   def new
     # render view with new Company form
